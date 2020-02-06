@@ -1,0 +1,64 @@
+Create database db_paketdua
+
+CREATE TABLE penumpang(
+  id_penumpang VARCHAR (6) UNIQUE NOT NULL,
+  username VARCHAR (100),
+  pass VARCHAR (100),
+  nama_penumpang VARCHAR (100),
+  alamat_penumpang VARCHAR (100),
+  tanggal_lahir date,
+  jenis_kelamin char (1),
+  telephone int
+);
+
+CREATE TABLE pemesanan(
+  id_pemesanan VARCHAR (6) UNIQUE NOT NULL,
+  kode_pemesanan VARCHAR (6),
+  tanggal_pemesanan date,
+  tempat_pemesanan VARCHAR (100),
+  id_pelanggan int,
+  kode_kursi int,
+  id_rute VARCHAR (6),
+  tujuan VARCHAR (50),
+  tanggal_berangkat date,
+  jam_cekin time,
+  jam_berangkat time,
+  total_bayar int,
+  id_petugas VARCHAR (6)
+); 
+
+CREATE TABLE petugas(
+  id_petugas VARCHAR (6) UNIQUE NOT NULL,
+  username VARCHAR (100),
+  pass VARCHAR (100),
+  nama_petugas VARCHAR (100),
+  id_level VARCHAR (6)
+);
+
+CREATE TABLE rute(
+  id_rute VARCHAR (6) UNIQUE NOT NULL,
+  tujuan VARCHAR (50),
+  rute_awal VARCHAR (100),
+  rute_akhir VARCHAR (100),
+  harga int,
+  id_transportasi VARCHAR (6)
+);
+
+CREATE TABLE tb_level(
+  id_level VARCHAR (6) UNIQUE NOT NULL,
+  nama_level VARCHAR (50)
+);
+
+CREATE TABLE transportasi(
+  id_transportasi VARCHAR (6) UNIQUE NOT NULL,
+  kode int,
+  jumlah_kursi int,
+  keterangan VARCHAR (100),
+  id_type_transportasi VARCHAR (6)
+);
+
+CREATE TABLE type_transportasi(
+  id_type_transportasi VARCHAR (6) UNIQUE NOT NULL,
+  nama_type VARCHAR (100),
+  keterangan VARCHAR (100)
+);
